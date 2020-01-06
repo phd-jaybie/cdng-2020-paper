@@ -1,0 +1,4 @@
+%Frame Size	Without Abstraction	With Abstraction	With Abstraction (Remote)	Without Abstraction	With Abstraction	With Abstraction (Remote)	Without Abstraction	With Abstraction	With Abstraction (Remote)
+300	888	637.1	1958.5	1910.7	782.8	2042.1	2637.3	1083	2024.6
+400	656	240.4545455	2188.727273	1734.727273	657.4545455	2405.181818	3162.818182	1133	2498.454545
+500	334.0909091	294.8181818	2356.545455	2384.727273	818.6363636	2322.454545	3982.181818	1053.454545	2312.636364

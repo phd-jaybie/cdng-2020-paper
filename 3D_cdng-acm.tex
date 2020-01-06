@@ -1,0 +1,158 @@
+%\documentclass[sigconf,anonymous, review]{acmart}
+\documentclass[sigconf]{acmart} %review %anonymous
+
+%\usepackage{subcaption}
+\usepackage[caption=true,font=small]{subfig}
+\usepackage{booktabs} % For formal tables
+\usepackage[linesnumbered,vlined,ruled]{algorithm2e}
+\usepackage{amsmath,amssymb,amsfonts}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\mean}{mean}
+% Copyright
+%\setcopyright{none}
+%\setcopyright{acmcopyright}
+%\setcopyright{acmlicensed}
+\setcopyright{rightsretained}
+%\setcopyright{usgov}
+%\setcopyright{usgovmixed}
+%\setcopyright{cagov}
+%\setcopyright{cagovmixed}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+%\DeclarePairedDelimiter\parentheses{\(}{\)}
+
+\newif\ifstartedinmathmode
+\newcommand\encircled[1]{%
+  \relax\ifmmode\startedinmathmodetrue\else\startedinmathmodefalse\fi%
+  \tikz[baseline,anchor=base]{%
+  \node[draw,circle,outer sep=0pt,inner sep=.2ex]
+    {\ifstartedinmathmode$#1$\else#1\fi};}%
+}
+
+% DOI
+%\acmDOI{10.475/123_4}
+
+% ISBN
+%\acmISBN{123-4567-24-567/08/06}
+
+%Conference
+%\acmConference[]{CCS 2019}{November 2019}{London, UK}
+%\acmYear{2019}
+%\copyrightyear{2019}
+
+%\acmArticle{4}
+%\acmPrice{15.00}
+
+% These commands are optional
+%\acmBooktitle{Transactions of the ACM Woodstock conference}
+%\editor{Jennifer B. Sartor}
+%\editor{Theo D'Hondt}
+%\editor{Wolfgang De Meuter}
+
+\begin{document}
+	
+%\balance
+
+\title{Spatial Privacy Leakage in 3D Data}
+%\titlenote{Produces the permission block, and
+%  copyright information}
+%\subtitle{Extended Abstract}
+%\subtitlenote{The full version of the author's guide is available as
+ % \texttt{acmart.pdf} document}
+
+\author{Jaybie Agullo de Guzman}
+\orcid{1234-5678-9012}
+\affiliation{%
+  \institution{Data 61, CSIRO \&\\
+  University of New South Wales}
+  \city{Sydney}
+\country{Australia}
+}
+\email{jaybie.deguzman@data61.csiro.au}
+
+\author{Kanchana Thilakarathna}
+\affiliation{%
+  \institution{University of Sydney \&\\ Data 61, CSIRO}
+  %\streetaddress{P.O. Box 1212}
+  %\city{Dublin}
+  \city{Sydney}
+	\country{Australia}
+  %\postcode{43017-6221}
+}
+\email{kanchana.thilakarathna@sydney.edu.au}
+
+\author{Aruna Seneviratne}
+\affiliation{%
+  \institution{University of New South Wales \&\\ Data 61, CSIRO}
+%  \streetaddress{1 Th{\o}rv{\"a}ld Circle}
+  \city{Sydney}
+  \country{Australia}
+}
+\email{a.seneviratne@unsw.edu.au}
+
+% The default list of authors is too long for headers.
+\renewcommand{\shortauthors}{J. de Guzman, K. Thilakarathna, \& A. Seneviratne}
+
+
+\begin{abstract}
+We have seen a rise in augmented and mixed reality (AR or MR) applications, devices, and platforms in recent years. These technologies require spatial understanding from captured 3D spatial data to detect objects or surfaces, often including structural (i.e. spatial geometry) and photometric (e.g. color, and texture) attributes, to allow applications to place virtual or synthetic objects that seemingly inhabit the real world; in some cases, even allowing interactions between physical and virtual objects. However, this capability poses unprecedented risks to user privacy, and we are only starting to realize these risks. Aside from objects being detected, captured spatial information may also reveal other sensitive information the user did not intend to be captured such as the location they are in. Current privacy protection measures are primarily aimed towards known and well-utilised data types (i.e. location, on-line activity, biometric, and so on) while a few works have focused on looking into the security and privacy risks of and providing protection on MR data, particularly on 3D MR data. Recently, we have been working on \textcolor{red}{(1) revealing the spatial privacy leakage that occurs during 3D MR data capture}, and \textcolor{red}{(2) using this information to inform the design of privacy preserving measures to be applied over captured 3D spatial data}. %We have revealed how easy it is to 
+
+% [ESORICS] In this work, we primarily reveal the privacy leakage from released 3D MR data and how the leakage persist even after implementing spatial generalizations and abstractions. Firstly, we formalize the spatial privacy problem in 3D mixed reality data as well as the adversary model. Then, we demonstrate through an inference model how adversaries can identify 3D spaces and, potentially, infer more spatial information. Moreover, we also demonstrate how compact 3D MR Data can be in terms of memory usage which allows adversaries to create lightweight 3D inference models of user spaces.
+
+% [USENIX]  In this work, we propose to leverage spatial generalizations coupled with conservative releasing to provide spatial privacy while maintaining data utility. We simulate user movement within spaces which reveals more of their space as they move around. Then, we designed an inference attacker to which the proposed spatial privacy approach can be evaluated against. Results show that revealing no more than 11 generalized planes–accumulated from revealed spaces with large enough radius, i.e. $r\leq1.0$m–can make an adversary fail in identifying the spatial location of the user for at least half of the time. Furthermore, if the accumulated spaces are of smaller radius, i.e. $r\leq0.5$m, we can release up to 29 generalized planes while enjoying both better data utility and privacy.
+
+%{JOURNAL} In this work, we investigate how we can leverage spatial generalizations coupled with conservative releasing in providing spatial privacy. We have developed experimental tools that allows us to simulate a user revealing more of their space as they move around it. Likewise, we have designed an inference attacker to which the proposed spatial privacy approach can be evaluated against. Results show that revealing no more than 15 planes can make an adversary fail in identifying the spatial location of the user for at least half of the time.
+\end{abstract}
+
+%
+% The code below should be generated by the tool at
+% http://dl.acm.org/ccs.cfm
+% Please copy and paste the code instead of the example below.
+%
+ \begin{CCSXML}
+	<ccs2012>
+	<concept>
+	<concept_id>10003120.10003121.10003124.10010392</concept_id>
+	<concept_desc>Human-centered computing~Mixed / augmented reality</concept_desc>
+	<concept_significance>500</concept_significance>
+	</concept>
+	<concept>
+	<concept_id>10002978.10003018.10003021</concept_id>
+	<concept_desc>Security and privacy~Information accountability and usage control</concept_desc>
+	<concept_significance>300</concept_significance>
+	</concept>
+	<concept>
+	<concept_id>10002978.10003029.10011150</concept_id>
+	<concept_desc>Security and privacy~Privacy protections</concept_desc>
+	<concept_significance>300</concept_significance>
+	</concept>
+	<concept>
+	<concept_id>10010147.10010178.10010224.10010226.10010239</concept_id>
+	<concept_desc>Computing methodologies~3D imaging</concept_desc>
+	<concept_significance>300</concept_significance>
+	</concept>
+	</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~Mixed / augmented reality}
+\ccsdesc[300]{Security and privacy~Information accountability and usage control}
+\ccsdesc[300]{Security and privacy~Privacy protections}
+\ccsdesc[300]{Computing methodologies~3D imaging}
+
+
+\keywords{}
+
+
+\maketitle
+
+%\RestyleAlgo{boxruled}
+\input{3D_cdng-body}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{bib_all.bib}
+
+\end{document}
