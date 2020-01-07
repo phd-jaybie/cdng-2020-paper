@@ -1,8 +1,8 @@
 %\documentclass[sigconf,anonymous, review]{acmart}
 \documentclass[sigconf]{acmart} %review %anonymous
 
-%\usepackage{subcaption}
-\usepackage[caption=true,font=small]{subfig}
+\usepackage{subcaption}
+%\usepackage[caption=true,font=small]{subfig}
 \usepackage{booktabs} % For formal tables
 \usepackage[linesnumbered,vlined,ruled]{algorithm2e}
 \usepackage{amsmath,amssymb,amsfonts}
@@ -99,7 +99,7 @@
 
 
 \begin{abstract}
-We have seen a rise in augmented and mixed reality (AR or MR) applications, devices, and platforms in recent years. These technologies require spatial understanding from captured 3D spatial data to detect objects or surfaces, often including structural (i.e. spatial geometry) and photometric (e.g. color, and texture) attributes, to allow applications to place virtual or synthetic objects that seemingly inhabit the real world; in some cases, even allowing interactions between physical and virtual objects. However, this capability poses unprecedented risks to user privacy, and we are only starting to realize these risks. Aside from objects being detected, captured spatial information may also reveal other sensitive information the user did not intend to be captured such as the location they are in. Current privacy protection measures are primarily aimed towards known and well-utilised data types (i.e. location, on-line activity, biometric, and so on) while a few works have focused on looking into the security and privacy risks of and providing protection on MR data, particularly on 3D MR data. Recently, we have been working on \textcolor{red}{(1) revealing the spatial privacy leakage that occurs during 3D MR data capture}, and \textcolor{red}{(2) using this information to inform the design of privacy preserving measures to be applied over captured 3D spatial data}. %We have revealed how easy it is to 
+We have seen a rise in augmented and mixed reality (AR or MR) applications, devices, and platforms in recent years. These technologies require spatial understanding to detect physical objects or surfaces often including their structural (i.e. spatial geometry) and photometric (e.g. color, and texture) attributes extracted from captured 3D spatial data. Then, these AR/MR applications can render virtual or synthetic objects that seemingly inhabit the real world, and, in some cases, even allowing interactions between physical and virtual objects. However, this capability poses unprecedented risks to user privacy, and we are only starting to realize these risks. Aside from objects being detected, captured 3D spatial data may also reveal other sensitive information the user did not intend to be captured such as the location they are in or the sensitive objects around them. Current privacy protection measures are primarily aimed towards known and well-utilised data types (i.e. location, on-line activity, biometric, and so on) while a few works have focused on looking into the security and privacy risks of and providing protection on MR data, particularly on 3D MR data. Thus, recently, we have been working on \textcolor{red}{(1) revealing and quantifying the spatial privacy leakage from 3D MR data capture}, and \textcolor{red}{(2) using the derived metrics to inform the design of privacy preserving measures to be applied over captured 3D MR spatial data}. %We have revealed how easy it is to 
 
 % [ESORICS] In this work, we primarily reveal the privacy leakage from released 3D MR data and how the leakage persist even after implementing spatial generalizations and abstractions. Firstly, we formalize the spatial privacy problem in 3D mixed reality data as well as the adversary model. Then, we demonstrate through an inference model how adversaries can identify 3D spaces and, potentially, infer more spatial information. Moreover, we also demonstrate how compact 3D MR Data can be in terms of memory usage which allows adversaries to create lightweight 3D inference models of user spaces.
 
