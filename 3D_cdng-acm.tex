@@ -40,9 +40,9 @@
 %\acmISBN{123-4567-24-567/08/06}
 
 %Conference
-%\acmConference[]{CCS 2019}{November 2019}{London, UK}
-%\acmYear{2019}
-%\copyrightyear{2019}
+\acmConference[]{CDNG 2020}{March 2020}{Brisbane, Australia}
+\acmYear{2020}
+\copyrightyear{2020}
 
 %\acmArticle{4}
 %\acmPrice{15.00}
@@ -57,7 +57,7 @@
 	
 %\balance
 
-\title{Spatial Privacy Leakage in 3D Data}
+\title{Spatial Privacy Leakage in 3D Mixed Reality Data}
 %\titlenote{Produces the permission block, and
 %  copyright information}
 %\subtitle{Extended Abstract}
@@ -65,7 +65,7 @@
  % \texttt{acmart.pdf} document}
 
 \author{Jaybie Agullo de Guzman}
-\orcid{1234-5678-9012}
+\orcid{0000-0002-2816-7721}
 \affiliation{%
   \institution{Data 61, CSIRO \&\\
   University of New South Wales}
@@ -97,15 +97,8 @@
 % The default list of authors is too long for headers.
 \renewcommand{\shortauthors}{J. de Guzman, K. Thilakarathna, \& A. Seneviratne}
 
-
 \begin{abstract}
-We have seen a rise in augmented and mixed reality (AR or MR) applications, devices, and platforms in recent years. These technologies require spatial understanding to detect physical objects or surfaces often including their structural (i.e. spatial geometry) and photometric (e.g. color, and texture) attributes extracted from captured 3D spatial data. Then, these AR/MR applications can render virtual or synthetic objects that seemingly inhabit the real world, and, in some cases, even allowing interactions between physical and virtual objects. However, this capability poses unprecedented risks to user privacy, and we are only starting to realize these risks. Aside from objects being detected, captured 3D spatial data may also reveal other sensitive information the user did not intend to be captured such as the location they are in or the sensitive objects around them. Current privacy protection measures are primarily aimed towards known and well-utilised data types (i.e. location, on-line activity, biometric, and so on) while a few works have focused on looking into the security and privacy risks of and providing protection on MR data, particularly on 3D MR data. Thus, recently, we have been working on \textcolor{red}{(1) revealing and quantifying the spatial privacy leakage from 3D MR data capture}, and \textcolor{red}{(2) using the derived metrics to inform the design of privacy preserving measures to be applied over captured 3D MR spatial data}. %We have revealed how easy it is to 
-
-% [ESORICS] In this work, we primarily reveal the privacy leakage from released 3D MR data and how the leakage persist even after implementing spatial generalizations and abstractions. Firstly, we formalize the spatial privacy problem in 3D mixed reality data as well as the adversary model. Then, we demonstrate through an inference model how adversaries can identify 3D spaces and, potentially, infer more spatial information. Moreover, we also demonstrate how compact 3D MR Data can be in terms of memory usage which allows adversaries to create lightweight 3D inference models of user spaces.
-
-% [USENIX]  In this work, we propose to leverage spatial generalizations coupled with conservative releasing to provide spatial privacy while maintaining data utility. We simulate user movement within spaces which reveals more of their space as they move around. Then, we designed an inference attacker to which the proposed spatial privacy approach can be evaluated against. Results show that revealing no more than 11 generalized planes–accumulated from revealed spaces with large enough radius, i.e. $r\leq1.0$m–can make an adversary fail in identifying the spatial location of the user for at least half of the time. Furthermore, if the accumulated spaces are of smaller radius, i.e. $r\leq0.5$m, we can release up to 29 generalized planes while enjoying both better data utility and privacy.
-
-%{JOURNAL} In this work, we investigate how we can leverage spatial generalizations coupled with conservative releasing in providing spatial privacy. We have developed experimental tools that allows us to simulate a user revealing more of their space as they move around it. Likewise, we have designed an inference attacker to which the proposed spatial privacy approach can be evaluated against. Results show that revealing no more than 15 planes can make an adversary fail in identifying the spatial location of the user for at least half of the time.
+We have seen a rise in augmented and mixed reality (AR or MR) applications, devices, and platforms in recent years. These technologies require spatial understanding to detect physical objects or surfaces often including their structural (i.e. spatial geometry) and photometric (e.g. color, and texture) attributes extracted from captured 3D spatial data. Then, these AR/MR applications can render virtual or synthetic objects that seemingly inhabit the real world, and, in some cases, even allowing interactions between physical and virtual objects. However, this capability poses unprecedented risks to user privacy, and we are only starting to realize these risks. Aside from objects being detected, captured 3D spatial data may also reveal other sensitive information the user did not intend to be captured such as the location they are in or the sensitive objects around them. Current privacy protection measures are primarily aimed towards known and well-utilised data types (i.e. location, on-line activity, biometric, and so on) while a few works have focused on looking into the security and privacy risks of and providing protection on MR data, particularly on 3D MR data. Thus, recently, we have been working on (1) revealing and quantifying the spatial privacy leakage from 3D MR data capture, and (2) using the derived metrics to inform the design of privacy preserving measures to be applied over captured 3D MR spatial data. In our latest work, we investigate \textit{conservative releasing} of generalized planes as a form of spatial privacy protection. %We have revealed how easy it is to 
 \end{abstract}
 
 %

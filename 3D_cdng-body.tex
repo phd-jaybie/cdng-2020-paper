@@ -37,92 +37,90 @@ Windows MR, \url{https://www.microsoft.com/en-au/windows/windows-mixed-reality}.
 
 Aside from the the spatial structural information, the mapping can also include 3D maps of objects within the space. It can also reveal the location of the user: the general location as well as the user's location within the space. Similarly, most users are oblivious about the various information that are included in the spatial maps captured and stored by MR platforms.
 
-\section{Related Work}\label{sec:related-work}
+%\section{Related Work}\label{sec:related-work}
 
 As majority of the work on MR have been focused on delivering the technology, only recently have there been efforts in addressing the security, safety, and privacy risks associated with MR technology. Thus, it is important to start designing and developing \textit{privacy-enhancing technologies} (PETs) especially those that can be applied to the MR use case. Several MR-related PETs that have been proposed in the literature--primarily utilizing \textit{sanitization} and information \textit{abstraction}--are listed in \cite{deguzman2018security}. %To maintain and control the utility of information, 
 
 %\paragraph{Approaches to visual data protection}\label{rrw:vision} Most of the earlier PETs for MR were primarily focused on \textit{visual} information (i.e. image and video) \textit{sanitization} \cite{jana2013scanner,raval2014markit, roesner2014world, aditya2016pic, raval2016you, shu2016cardea, li2016privacycamera, zarepour2016context, steilPrivaceye2018}. Aside from these are \textit{abstraction} approaches to privacy protection. In the specific 3D use case, significant work have been done on protections involving abstracting physiological information \cite{jana2013enabling, figueiredo2016prepose} using the idea of \textit{least privilege} \cite{vilk2014least,vilk2015surroundweb}. A very recent work also utilized the idea of least privilege to apply visual abstractions for mobile MR \cite{deguzman2019safeMR}. However, most of these abstraction approaches are only targeted over specific input types such as physiometric information (i.e. faces, user gestures, and so on), and have not specifically provided protection against spatial recognition attacks. On the other hand, all the sanitization approaches are all focused on post-captured images which can still pose security and privacy risks; moreover, they have only been applied on the wide use case of visual capture devices and not on the specific MR use case.
 
-\paragraph{Approaches to 3D data protection}\label{rrw:3d}
+\subsubsection*{Related Work}%Approaches to 3D data protection}\label{rrw:3d}
 Two works have started to look into and expose the actual risks brought about by unprotected and indefinite access to 3D data by MR applications. Using machine learning, original scenes can be revealed from structure from motion (SfM) 3D point cloud data with additional sparse SIFT or other photometric information \cite{pittaluga2019revealing}. A concurrent work focused on presenting a privacy-preserving method of pose estimation to counter these risks. It removes the necessity for 3D point cloud data by instead using 3D line cloud--effectively obfuscating 3D structural, i.e. geometrical, information--during pose estimation \cite{speciale2019privacy}; however, the 3D line cloud approach only addresses the pose estimation functionality and does not present the viability of its usability for surface or object detection which is necessary for a virtual object to be rendered or ``anchored'' onto. Thus, it would still be necessary for 3D point cloud data to be exposed but, perhaps, with some privacy-preserving transformations to hide sensitive content and further prevent spatial recognition. %Furthermore, even with the absence of additional photometric information, spatial location of 3D point cloud data can still be recognized given that adversaries have access to an ensemble of historical 3D point cloud data \cite{deguzman2019firstlook}. 
 
-\section{3D SPATIAL privacy}
-
-Our earlier work provided preliminary evidence of how easy it is for an adversary to infer the location of spaces from captured 3D data \cite{deguzman2019firstlook}. And how, even with spatial generalization (i.e. the 3D space is generalized in to a set of planes), spatial inference is still possible at a significant success rate, i.e. $P_{success}\geq0.2$ for spaces with radius $r\geq 0.5$meters. We have extended this work with an improved attacker that not only \textit{recognizes} the space, i.e. \textit{inter}-space inference, but also infers the user's location \textit{within} the space, i.e. \textit{intra}-space inference. %To construct the attacker, we build up on existing place recognition methods that have been applied on 3D lidar data and modify it to be usable for the scale on which 3D data is captured by MR platforms. Then, we present spatial generalizations with conservative releasing as a privacy approach. %We also utilize an extended dataset that includes various indoor and outdoor scenes.
+\section{3D spatial privacy}
 
 \begin{figure}[t]
 	\centering
-	%\vspace{2mm}
-	\begin{subfigure}{0.48\columnwidth}
-		\includegraphics[width=\columnwidth]{figures/cdng-partial-interspace.pdf}
-		\vspace{-5mm}
-		\caption{\small Inter-space success rate}
-		\label{fig:partial-interspace}
-    	%\vspace{3mm}
-	\end{subfigure}
-	\begin{subfigure}{0.48\columnwidth}
-		\includegraphics[width=\columnwidth]{figures/cdng-partial-intraspace.pdf}
-		\vspace{-5mm}
-        \caption{\small Intra-space distance error}
-		\label{fig:partial-intraspace}
-	\end{subfigure}
-	\vspace{-3mm}
-    \caption{\small Adversarial inference performance as we vary the size of the revealed space}
-	\label{fig:partial-performance}
-	\vspace{-3mm}
-\end{figure}
-
-\begin{figure}[t]
-	\centering
-	%\vspace{2mm}
+	\vspace{-2mm}
 	\begin{subfigure}{0.61\columnwidth}
 		\includegraphics[width=\columnwidth]{figures/cdng-successive-interspace.pdf}
 		\vspace{-5mm}
-		\caption{\small Inter-space success rate\newline }
-		\label{fig:partial-interspace}
+		\caption{\small Inter-space error rate\newline }
+		\label{fig:successive-interspace}
     	%\vspace{3mm}
 	\end{subfigure}
 	\begin{subfigure}{0.37\columnwidth}
 		\includegraphics[width=\columnwidth]{figures/cdng-successive-intraspace.pdf}
 		\vspace{-5mm}
         \caption{\small Intra-space distance error}
-		\label{fig:partial-intraspace}
+		\label{fig:successive-intraspace}
 	\end{subfigure}
 	\vspace{-3mm}
-    \caption{\small Adversarial inference performance as we \textbf{release} more of the space}
-	\label{fig:partial-performance}
+    \caption{Adversarial inference performance as we \textbf{release} more of the space}
+	\label{fig:successive-performance}
 	\vspace{-3mm}
 \end{figure}
 
-We measure the privacy of the released point cloud in terms of the performance error on these two levels of inference. For inter-space inference, we use the inference error rate directly, while, for intra-space inference, we use the distance error from the true position.
+Our earlier work provided preliminary evidence of how easy it is for an adversary to infer the location of spaces from captured 3D data \cite{deguzman2019firstlook}. And how, even with spatial generalization (i.e. the 3D space is generalized in to a set of planes), spatial inference is still possible at a significant success rate, i.e. $P_{success}\geq0.2$ for spaces with radius $r\geq 0.5$meters. We have extended this work with an improved attacker that not only \textit{recognizes} the space, i.e. \textit{inter}-space inference, but also infers the user's location \textit{within} the space, i.e. \textit{intra}-space inference. %To construct the attacker, we build up on existing place recognition methods that have been applied on 3D lidar data and modify it to be usable for the scale on which 3D data is captured by MR platforms. Then, we present spatial generalizations with conservative releasing as a privacy approach. %We also utilize an extended dataset that includes various indoor and outdoor scenes.
 
-To the best of our knowledge, we are the first to expose spatial privacy risks on 3D spatial data captured by MR platforms. We have demonstrated how easy it is to extend the scope of 3D recognition algorithms to be used as an attacker in the MR scenario. To this end, we summarize the major contributions of this work as follows:
+%\begin{figure}[t]
+%	\centering
+	%\vspace{2mm}
+%	\begin{subfigure}{0.48\columnwidth}
+%		\includegraphics[width=\columnwidth]{figures/cdng-partial-interspace.pdf}
+%		\vspace{-5mm}
+%		\caption{\small Inter-space error rate}
+%		\label{fig:partial-interspace}
+    	%\vspace{3mm}
+%	\end{subfigure}
+%	\begin{subfigure}{0.48\columnwidth}
+%		\includegraphics[width=\columnwidth]{figures/cdng-partial-intraspace.pdf}
+%		\vspace{-5mm}
+ %       \caption{\small Intra-space distance error}
+%		\label{fig:partial-intraspace}
+%	\end{subfigure}
+%	\vspace{-3mm}
+ %   \caption{\small Adversarial inference performance as we vary the size of the revealed space}
+%	\label{fig:partial-performance}
+%	\vspace{-3mm}
+%\end{figure}
 
-\begin{enumerate}%[leftmargin=*]
-	\item First, we formalize the \textit{3D spatial privacy problem} and define the privacy and utility metrics specific to 3D MR data.
-	\item We present an \textit{3D adversarial inference model} that reveals the general space of a user, i.e. inter-space inference, and their specific location within the space, i.e. intra-space inference or, commonly, tracking attack.%, e.g. point sampling factor by 3.
-	%In particular, we define the 3D adversarial inference using the well-established Bayesian inference as basis.
-	\item Using 3D point cloud data collected from Microsoft HoloLens, which is also the same 3D data representation format for Google's ARCore and Apple's ARKit, we demonstrate that 3D spatial inference attacks are possible on these MR platforms.
-	\item We demonstrate that the insufficient protection provided by spatial generalizations can be improved by conservatively releasing the generalizations; specifically, we control the release of plane generalizations rather than giving out the generalizations entirely. %However, %as well as the 	negative impact on utility of these generalizations. 
-	\item We also show that we can get better data utility with a smaller size of space while providing adequate privacy. 
-	\item Lastly, we present an in depth analysis over a realistic scenario when user spaces are successively released and experimentally determine the minimum number of releases, and planes that prevents spatial inference, both inter-space and intra-space.
-	%\item Lastly, we 
-	%delaying release of small partial spaces (with radius $r<0.25$) and maintaining a low number of planes, i.e. $< 5$, can delay inference and potentially provide privacy. %in conjunction with a localized generalization.
-	%higher number of planes can be inferred more precisely but does not necessarily improve recall or reduce error rate.
-	%\item Lastly, we show the \textit{memory compactness} of 3D data which emphasizes how adversaries can create lightweight 3D inference models of user spaces.
-\end{enumerate}
+We measure the privacy of the released point cloud in terms of the performance on these two levels of inference. For inter-space inference, we use the inference error rate directly, while, for intra-space inference, we use the distance error from the true position of the released space. Fig. \ref{fig:successive-performance} shows inference performance in terms if these measures as we reveal more of the space--emulating the case when the user moves around revealing more of the space that they are in. Fig. \ref{fig:successive-intraspace} shows that even at small radius of $r = 0.5$m, $P_{error}\leq0.5$ after 30 releases. And the intra-space distance error quickly drops and flattens around $3$m after 5 releases or more. Thus, \textit{na\"ive} generalizations are not enough protection from these spatial inference attacks.
 
-%RETURN HERE AFTER REARRANGING ALL THE SECTIONS.
+\begin{figure}[t]
+	\vspace{-2mm}
+    \begin{subfigure}{0.49\columnwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{figures/successive-varying-planes-heatmap-quantized-r05-3.png}
+		\vspace{-5mm}
+        \caption{$r = 0.5$m}
+		\label{fig:varying-planes-heatmap}
+	\end{subfigure}
+%	\vspace{-2mm}
+    \begin{subfigure}[]{0.49\columnwidth}
+		\centering
+		\includegraphics[width=\columnwidth]{figures/successive-varying-planes-heatmap-quantized-r10-3.png}
+		\vspace{-5mm}
+		\caption{$r = 1.0$m}
+		\label{fig:varying-planes-heatmap-r1}
+	\end{subfigure}
+	%\vspace{-3mm}
+	\caption{Average inter-space privacy of conservatively released planes over successive releasing}
+	\label{fig:conservative-releasing-inter}
+	\vspace{-3mm}
+\end{figure}
 
-The rest of the paper is organized follows. First, we discuss the related work in \S\ref{sec:related-work}. Then, \S\ref{sec:framework} presents the theoretical framework of spatial privacy problem and the definitions of the elements of the framework as well as the adversary model. In \S\ref{sec:privacy-preservation}, we describe the various information reduction techniques we can employ to prevent spatial inference. Likewise, we describe in \S\ref{sec:3d-space} the different description and inference methods an adversary may utilize for spatial inference. We present the evaluation methodology in \S\ref{sec:methodology} to investigate the viability of privacy methods we employ over varying experimental setups. The results are presented in \S\ref{sec:results} followed by the discussion in \S\ref{sec:discussion}. We conclude the paper in \S\ref{sec:conclusion}. % and \S\ref{sec:future_work}, respectively. 
+\subsubsection*{Conservatively releasing generalized planes} 
+Therefore, it is necessary to provide users with a form of protection, i.e. privacy preserving 3D point cloud releasing. We demonstrate that we can enhance the protection from plane generalizations by simply conservatively releasing the generalized planes. As shown in Fig. \ref{fig:conservative-releasing-inter}, our preliminary investigation shows that we can reveal at most 13 planes and avoid inter-space inference almost half the time. Specifically, with such very conservative releases, the success rate of an (inter-space) inferrer is no better than a random guess. And, for the occasions that the adversary correctly recognizes the space, the intra-space location can be off by at least 3 meters. %Moreover, we have shown a quantification of how much we can improve both $\Pi_1$ and $\Pi_2$ by reducing the size of the partial spaces to be revealed. Consequently, in terms of data utility $Q$, a smaller size is anyway preferred to provide good (i.e. low) $Q$. %Similarly, for intra-space inference, for those correctly ``guessed'' spaces will be off by 5 meters or farther.
 
-\section{Conclusion}\label{sec:conclusion}
-Currently, MR services are provided full and indefinite access to the 3D spatial information, i.e. 3D point cloud data, captured by an MR-capable device. In this work, we highlight that the risks associated to the indefinite access of applications to these 3D point cloud data. Our preliminary work have presented preliminary evidence of these risks \cite{deguzman2019firstlook}. We have earlier demonstrated how a descriptor-based inferrer can be used for 3D spatial inference. Using this inferrer, we can identify, i.e. inter-space inference, the current space of the MR user using the 3D point cloud information provided by the MR device to the MR service. We enhance this inter-space inferrer in this work.
-
-Furthermore, we have extended the capability of the inferrer to also reveal the exact location within the space, i.e. instra-space inference, of the user. Our validation results reveal that, unsurprisingly, raw 3D point cloud data readily reveals the specific location of spaces with average intra-space error of as low as $1 m$. And that naive spatial generalizations, i.e. using the RANSAC plane-fitting algorithm, is still inadequate.%cannot protect against this kind of inference.
-
-Therefore, it is necessary to provide users with a form of protection, i.e. privacy preserving 3D point cloud releasing. %This was the primary goal of this work.
-This time, we have demonstrated that we can enhance the protection from plane generalizations by simply conservatively releasing the generalized planes provided to applications. Our emulated experimental investigation reveals that we can reveal upto 13 planes and avoid inter-space inference half the time. Specifically, with such very conservative releases, the success rate of an (inter-space) inferrer is no better than a random guess. And, for the occasions that the adversary correctly recognizes the space, the intra-space location can be off by at least 3 meters. Moreover, we have shown a quantification of how much we can improve both $\Pi_1$ and $\Pi_2$ by reducing the size of the partial spaces to be revealed. Consequently, in terms of data utility $Q$, a smaller size is anyway preferred to provide good (i.e. low) $Q$. %Similarly, for intra-space inference, for those correctly ``guessed'' spaces will be off by 5 meters or farther.
-
-Overall, these results provides quantities, i.e. thresholds, that allows us to potentially protect users and their spaces as they user MR services. Moreover, we have only utilized simple approaches to spatial privacy protection. Generalization are already implemented in most MR platforms. Thus, what remains is the implementation of conservative plane releasing to provide protection.
+Overall, these results provides quantities, i.e. thresholds, that allows us to potentially protect users and their spaces as they user MR services. And, so far, we have only utilized simple approaches to spatial privacy protection. Generalization are already implemented in most MR platforms. Thus, what remains is the implementation of conservative plane releasing to provide protection and insert it as in intermediary form of protection, $M$, as shown in Fig, \ref{fig:with-privacy-mechanism}.
 %For future work, a practical investigation can provide us with the impact of our presented simple approach on usability of the MR application provided with such generalizations. Furthermore, we also plan to investigate the effectiveness and impact of adding plane perturbations, i.e. translation and/or rotation. %Future work, 1) perturbations, i.e. plane translation and/or rotation; 2) practically demonstrate a proof-of-concept using at least an HMD and a mobile device, then, measure QoE. A practical investigation can provide us with actual user feedback on whether our approach affects the usability of the application or not.
